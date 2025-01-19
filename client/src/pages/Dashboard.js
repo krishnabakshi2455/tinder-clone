@@ -70,9 +70,11 @@ const Dashboard = () => {
     }
 
     const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
+    console.log('matchedUserIds ', matchedUserIds)
 
-    const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.user_id))
+    const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.matches.user_id))
 
+    console.log('genderedUsers ', genderedUsers)
 
     console.log('filteredGenderedUsers ', filteredGenderedUsers)
     return (

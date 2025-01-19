@@ -16,6 +16,25 @@ app.use(express.json())
 // Default
 app.get('/', (req, res) => {
     res.json('Hello to my app')
+    console.log("this is uri",uri);
+    
+}).get('/dummy', (req, res) => {
+    // res.json("this is dunnmy use to check if the mongodb is connected")
+    async function testMongoConnection() {
+        const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+        try {
+            await client.connect(); // Attempt to connect
+            res.send('Connected successfully to MongoDB!');
+        } catch (err) {
+            res.send('Failed to connect to MongoDB:');
+            console.log("Failed to connect to MongoDB:",err);
+            
+        }
+        finally {
+            await client.close(); // Close the connection after testing
+        }
+    }
+    testMongoConnection();
 })
 
 // Sign up to the Database
