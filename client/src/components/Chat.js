@@ -12,6 +12,7 @@ const Chat = ({descendingOrderMessages}) => {
                         </div>
                         <p>{message.message}</p>
                     </div>
+                    
                 ))}
             </div>
         </>
