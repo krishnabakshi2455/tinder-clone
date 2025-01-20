@@ -27,7 +27,8 @@ const OnBoarding = () => {
         console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.put('http://localhost:8000/user', {formData})
+            // const response = await axios.put('http://localhost:8000/user',
+            const response = await axios.put('https://tinder-clone-7o27.onrender.com/user', {formData})
             console.log(response)
             const success = response.status === 200
             if (success) navigate('/dashboard')
